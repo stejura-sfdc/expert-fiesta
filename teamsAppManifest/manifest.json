@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.8/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.8",
+  "version": "1.0.0",
+  "id": "<<YOUR-MICROSOFT-APP-ID>>",
+  "packageName": "com.sfdc.demo",
+  "developer": {
+    "name": "Salesforce",
+    "websiteUrl": "https://www.salesforce.com",
+    "privacyUrl": "https://www.salesforce.com",
+    "termsOfUseUrl": "https://www.salesforce.com"
+  },
+  "icons": {
+    "color": "icon-color.png",
+    "outline": "icon-outline.png"
+  },
+  "name": {
+    "short": "SFDC Demo",
+    "full": "SFDC Demo"
+  },
+  "description": {
+    "short": "Demo app/bot for SFDC",
+    "full": "Demo app/bot for SFDC"
+  },
+  "accentColor": "#FFFFFF",
+  "composeExtensions": [
+    {
+      "botId": "<<YOUR-MICROSOFT-APP-ID>>",
+      "canUpdateConfiguration": true,
+      "commands": [
+        {
+          "id": "dynamicSearchQuery",
+          "context": [
+            "compose",
+            "commandBox"
+          ],
+          "description": "Find the record to mention",
+          "title": "Search records",
+          "type": "action",
+          "fetchTask": true,
+          "parameters": [
+            {
+              "name": "search",
+              "title": "Search"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity"
+  ],
+  "validDomains": [
+    "*.githubusercontent.com",
+    "*.ngrok.io",
+    "*.botframework.com",
+    "*.glitch.me"
+  ]
+}

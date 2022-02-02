@@ -1,0 +1,34 @@
+<html>
+  <body>
+    <div><strong>From: </strong><span id="from"></span></div>
+    <br />
+    <div>
+      <strong>Teams Context: </strong><span id="context">Loading...</span>
+    </div>
+
+    <script src="https://statics.teams.cdn.office.net/sdk/v1.5.2/js/MicrosoftTeams.min.js"></script>
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const from = urlParams.get("from");
+        if (from) {
+          console.log(`Context: ${from}`);
+          const div = document.getElementById("from");
+          div.textContent = from;
+        }
+      });
+    </script>
+
+    <script type="text/javascript">
+      microsoftTeams.initialize();
+
+      microsoftTeams.getContext(function (context) {
+        const strContext = JSON.stringify(context);
+        console.log(`Teams Context: ${strContext}`);
+        const div = document.getElementById("context");
+        div.textContent = strContext;
+      });
+    </script>
+  </body>
+</html>
